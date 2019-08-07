@@ -1,0 +1,2 @@
+# JScanner
+Scanner with zxing
