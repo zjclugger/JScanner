@@ -1,0 +1,34 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+    compileSdkVersion compile_sdk_version
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode version_code
+        versionName version_name
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api files('libs/zxing-core-3.3.3.jar')
+    implementation "androidx.appcompat:appcompat:1.0.2"
+}
+
+publish {
+    repoName = 'maven'  //repo name default is maven
+    userOrg = 'zjclugger'  //bintray username
+    groupId = 'com.github.zjclugger.JScanner'  //compile part 1
+    artifactId = 'JScanner'  //module name compile part 2
+    publishVersion = '1.0'  //version code,compile part 3
+    desc = 'scanner with zxing'
+    website = 'https://github.com/zjclugger/JScanner' //github
+}
