@@ -22,7 +22,7 @@ allprojects {
  dependencies {
     ...
     //添加依赖
-	compile 'com.github.zjclugger.JScanner:JScanner:1.0'
+	compile 'com.zjclugger.jscanner:JScanner:1.0.1'
  ...
 }
 

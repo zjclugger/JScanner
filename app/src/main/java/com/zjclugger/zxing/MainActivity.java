@@ -80,8 +80,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toolbar.setTitle("扫一扫");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
         result = (TextView) findViewById(R.id.result);
         scanBtn = (Button) findViewById(R.id.scanBtn);
         contentEt = (EditText) findViewById(R.id.contentEt);
@@ -105,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //申请权限
     }
 
-    private void scan(){
+    private void scan() {
         Intent intent = new Intent(MainActivity.this, CaptureActivity.class);
                                 /*ZxingConfig是配置类
                                  *可以设置是否显示底部布局，闪光灯，相册，
@@ -191,21 +197,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             default:
         }
-
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         // 扫描二维码/条码回传
         if (requestCode == REQUEST_CODE_SCAN && resultCode == RESULT_OK) {
             if (data != null) {
-
                 String content = data.getStringExtra(ScannerConstants.CODED_CONTENT);
                 result.setText("扫描结果为：" + content);
             }
         }
     }
-
 }

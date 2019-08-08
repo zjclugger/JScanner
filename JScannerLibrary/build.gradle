@@ -26,9 +26,9 @@ dependencies {
 publish {
     repoName = 'maven'  //repo name default is maven
     userOrg = 'zjclugger'  //bintray username
-    groupId = 'com.github.zjclugger.JScanner'  //compile part 1
+    groupId = 'com.zjclugger.jscanner'  //compile part 1
     artifactId = 'JScanner'  //module name compile part 2
-    publishVersion = '1.0'  //version code,compile part 3
+    publishVersion = '1.0.1'  //version code,compile part 3
     desc = 'scanner with zxing'
     website = 'https://github.com/zjclugger/JScanner' //github
 }
